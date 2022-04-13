@@ -153,9 +153,40 @@ const weaponsArray = [
 
 // ITERATION 2
 
-function selectRandom() {}
+function selectRandom(suspect, room, weapon) {
+  if(suspect === 0){
+    return undefined;
+  }
+  // sacarun valor aleatorio del sospechoso
+  let randomNumberSuspect = Math.random() * suspect.length
+  let randomIndex = Math.floor(randomNumberSuspect);
+  let resultSuspect = suspect[randomIndex]
+  // console.log(resultSuspect)
+  // Valor aleatorio de la habitación
+  let randomNumberRoom = Math.random() * room.length
+  let randomIndexRoom = Math.floor(randomNumberRoom);
+  let resultRoom = room[randomIndexRoom];
+  // console.log(resultRoom)
+  // //Valor aleatorio del arma
+  let randomNumberWeapon = Math.random() * weapon.length
+  let randomIndexWeapon = Math.floor(randomNumberWeapon);
+  let resultWeapon = weapon[randomIndexWeapon];
+  // console.log(resultWeapon)
+  let result = [resultSuspect, resultRoom, resultWeapon];
+  console.log(result);
+  return result;
+}
 
-function pickMystery() {}
+selectRandom(suspectsArray, roomsArray, weaponsArray);
+
+function pickMystery() {
+  let suspect = suspectsArray[Math.floor(Math.random() * suspectsArray.length)];
+  let weapon = weaponsArray[Math.floor(Math.random() * weaponsArray.length)];
+  let room = roomsArray[Math.floor(Math.random() * roomsArray.length)];
+  
+  return {suspect, room, weapon};
+}
+
 
 
 // ITERATION 3
